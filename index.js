@@ -42,9 +42,6 @@ process.on('uncaughtException', (err, origin) => {
 
     // print debug info
     console.clear();
-
-    msg.primary('Eryx Lite has been started.');
-
 	//balance check
     if(network.bnb_balance == 0) {
 	msg.error(`[error] You don't have any Balance in your account. (used for gas fee)`);
