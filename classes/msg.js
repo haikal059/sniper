@@ -1,19 +1,4 @@
-/*=================================================*/
-/*                                                 */
-/*              Written By Zooky.                  */
-/*                                                 */
-/*             Discord: Zooky.#1003                */
-/*              Telegram: @zookyy                  */
-/*                                                 */
-/*          Website: https://www.eryx.io           */
-/*                                                 */
-/*  If you wish to purchase the premium version    */
-/*       please visit the github link above.       */
-/*                                                 */
-/*=================================================*/
-
 const chalk = require('chalk');
-
 let originalLog = console.log;
 
 console.log = function(msg) {

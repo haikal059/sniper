@@ -1,17 +1,3 @@
-/*=================================================*/
-/*                                                 */
-/*              Written By Zooky.                  */
-/*                                                 */
-/*             Discord: Zooky.#1003                */
-/*              Telegram: @zookyy                  */
-/*                                                 */
-/*          Website: https://www.eryx.io           */
-/*                                                 */
-/*  If you wish to purchase the premium version    */
-/*       please visit the github link above.       */
-/*                                                 */
-/*=================================================*/
-
 const chalk = require('chalk');
 const ethers = require('ethers');
 const fs = require('fs').promises;
@@ -50,32 +36,18 @@ process.on('uncaughtException', (err, origin) => {
     await network.prepare();
 
     if(!network.isETH(config.cfg.contracts.input)) {
-        msg.error(`[error] The free version of the bot can only use the BNB pair.`);
+        msg.error(`[error].`);
         process.exit();
     }
 
     // print debug info
     console.clear();
 
-    ConsoleLog(`/*=================================================*/
-/*                                                 */
-/*              Written By Zooky.                  */
-/*                                                 */
-/*             Discord: Zooky.#1003                */
-/*              Telegram: @zookyy                  */
-/*                                                 */
-/*          Website: https://www.eryx.io           */
-/*                                                 */
-/*  If you wish to purchase the premium version    */
-/*       please visit the github link above.       */
-/*                                                 */
-/*=================================================*/\n\n`);
-
     msg.primary('Eryx Lite has been started.');
 
-	// balance check
+	//balance check
     if(network.bnb_balance == 0) {
-    	msg.error(`[error] You don't have any BNB in your account. (used for gas fee)`);
+	msg.error(`[error] You don't have any Balance in your account. (used for gas fee)`);
         process.exit();
     }
 

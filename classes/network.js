@@ -1,50 +1,24 @@
-/*=================================================*/
-/*                                                 */
-/*              Written By Zooky.                  */
-/*                                                 */
-/*             Discord: Zooky.#1003                */
-/*              Telegram: @zookyy                  */
-/*                                                 */
-/*          Website: https://www.eryx.io           */
-/*                                                 */
-/*  If you wish to purchase the premium version    */
-/*       please visit the github link above.       */
-/*                                                 */
-/*=================================================*/
-
 const chalk = require('chalk');
 const ethers = require('ethers');
-
 const msg = require('./msg.js');
 const config = require('./config.js');
 const cache = require('./cache.js');
 const args = require('minimist')(process.argv.slice(2));
-
 require('./init.js');
-
 class Network {
-
 	async load() {
-
 		try {
-
-			// initialize stuff
 			if(config.cfg.wallet.wss_node.startsWith('http')) {
 				this.node = new ethers.providers.JsonRpcProvider(config.cfg.wallet.wss_node);
 			} else {
 				this.node = new ethers.providers.WebSocketProvider(config.cfg.wallet.wss_node);
 			}
-
-			// initialize account
+			
 			this.wallet = new ethers.Wallet(config.cfg.wallet.secret_key);
 			this.account = this.wallet.connect(this.node);
-
-			// get network id for later use
 			this.network = await this.node.getNetwork();
-
 			// supported chains
 			this.chains = {
-
 				// ETH Mainnet
 				'1': {
 					'name': 'Ethereum',
@@ -55,7 +29,6 @@ class Network {
 					'factory': '0x5C69bEe701ef814a2B6a3EDD4B1652CB9cc5aA6f',
 					'page': 'https://etherscan.io'
 				},
-
 				// BSC Mainnet
 				'56': {
 					'name': 'Binance Smart Chain',
@@ -66,6 +39,15 @@ class Network {
 					'factory': '0xcA143Ce32Fe78f1f7019d7d551a6402fC5350c73',
 					'page': 'https://bscscan.com'
 				},
+				'1116': {
+          'name': 'Core Blockchain Mainnet',
+          'symbol': 'CORE',
+          'wrapped': 'WCORE',
+          'token': '0x40375C92d9FAf44d2f9db9Bd9ba41a3317a2404f',
+          'router': '0x74F56a7560eF0C72Cf6D677e3f5f51C2D579fF15',
+          'factory': '0xe0b8838e8d73ff1CA193E8cc2bC0Ebf7Cf86F620',
+          'page': 'https://scan.coredao.org'
+        }
 
 			};
 
@@ -281,7 +263,8 @@ class Network {
 	}
 
 	isETH(token) {
-		return (token.toLowerCase() == this.chains[this.network.chainId].token.toLowerCase())
+		  return (token.toLowerCase() == this.chains[this.network.chainId].token.toLowerCase())
+	  
 	}
 
 	async getLiquidity(pair) {
