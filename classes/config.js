@@ -18,8 +18,9 @@ class Config {
 		this.cfg.contracts.input = this.getContractAddressByName(this.cfg.contracts.input);
 		this.cfg.contracts.output = this.getContractAddressByName(this.cfg.contracts.output);
 		this.cfg.contracts.explorer = this.cfg.contracts.explorer;
-		this.cfg.contracts.reuter = this.cfg.contracts.router;
+		this.cfg.contracts.router = this.cfg.contracts.router;
 		this.cfg.contracts.factory = this.cfg.contracts.factory;
+		this.cfg.contracts.weth = this.cfg.contracts.weth;
 		this.cfg.transaction.gas_price = ethers.utils.parseUnits(`${this.cfg.transaction.gas_price}`, 'gwei');
 	}
 
@@ -58,7 +59,7 @@ class Config {
 		} else if (_name.toLowerCase() == 'sfm') {
 			return '0x8076c74c5e3f5852037f31ff0093eeb8c8add8d3';
 		} else if (_name.toLowerCase() == 'core') {
-			return '0x40375C92d9FAf44d2f9db9Bd9ba41a3317a2404f'
+			return this.cfg.contracts.weth;
 		}
 
 		// no address specified, fail with error

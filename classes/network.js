@@ -43,7 +43,7 @@ class Network {
 					'name': 'Core Blockchain Mainnet',
 					'symbol': 'CORE',
 					'wrapped': 'WCORE',
-					'token': '0x40375C92d9FAf44d2f9db9Bd9ba41a3317a2404f',
+					'token': config.cfg.contracts.weth,
 					'router': config.cfg.contracts.router,
 					'factory': config.cfg.contracts.factory,
 					'page': config.cfg.contracts.explorer
