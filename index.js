@@ -84,9 +84,8 @@ process.on('uncaughtException', (err, origin) => {
 
   // get liquidity
   let liquidity = await network.getLiquidity(pair);
-  let symbol = await network.getSymbol()
 
-  msg.primary(`Liquidity found: ${liquidity} ${symbol}.\n`);
+  msg.primary(`Liquidity found: ${liquidity} ${cache.data.addresses[config.cfg.contracts.input].symbol}.\n`);
 
   // get starting tick
   let startingTick = Math.floor(new Date().getTime() / 1000);
