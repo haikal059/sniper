@@ -51,6 +51,30 @@ class Network {
 
 			};
 
+			let dex = {
+				'shadowswap': {
+					'tokenName': 'Shdw',
+					'token': '0xddBa66C1eBA873e26Ac0215Ca44892a07d83aDF5',
+					'weth': '0x191E94fa59739e188dcE837F7f6978d84727AD01',
+					'router': '0xCCED48E6fe655E5F28e8C4e56514276ba8b34C09',
+					'factory': '0x326Ee96748E7DcC04BE1Ef8f4E4F6bdd54048932',
+				},
+				'archerswap': {
+					'tokenName': 'BOW',
+					'token': '0x1a639e150d2210a4be4a5f0857a9151b241e7ae4',
+					'weth': '0x40375c92d9faf44d2f9db9bd9ba41a3317a2404f',
+					'router': '0x74f56a7560ef0c72cf6d677e3f5f51c2d579ff15',
+					'factory': '0xe0b8838e8d73ff1ca193e8cc2bc0ebf7cf86f620',
+				},
+				'lfgswap': {
+					'tokenName': 'LFG',
+					'token': '0xF7a0b80681eC935d6dd9f3Af9826E68B99897d6D',
+					'weth': '0x40375C92d9FAf44d2f9db9Bd9ba41a3317a2404f',
+					'router': '0x42a0F91973536f85B06B310fa9C70215784F35a1',
+					'factory': '0xA1ADD165AED06D26fC1110b153ae17a5A5ae389e',
+				}
+			}
+
 
 			// pcs stuff for later use
 			this.factory = new ethers.Contract(
