@@ -51,6 +51,7 @@ class Network {
 
 			};
 
+
 			// pcs stuff for later use
 			this.factory = new ethers.Contract(
 				this.chains[this.network.chainId].factory,
@@ -75,7 +76,7 @@ class Network {
 			);
 
 			this.contract_in = new ethers.Contract(
-				config.cfg.contracts.input,
+				config.cfg.contracts.pair,
 				[
 					{ "constant": true, "inputs": [{ "name": "_owner", "type": "address" }], "name": "balanceOf", "outputs": [{ "name": "balance", "type": "uint256" }], "payable": false, "type": "function" },
 					{ "constant": false, "inputs": [{ "name": "guy", "type": "address" }, { "name": "wad", "type": "uint256" }], "name": "approve", "outputs": [{ "name": "approved", "type": "bool" }], "payable": false, "type": "function" },
@@ -265,6 +266,11 @@ class Network {
 	isETH(token) {
 		return (token.toLowerCase() == this.chains[this.network.chainId].token.toLowerCase())
 
+	}
+
+	async getSymbol() {
+		const symbol = await this.contract_in.symbol()
+		return symbol;
 	}
 
 	async getLiquidity(pair) {

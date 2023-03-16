@@ -13,7 +13,6 @@ class Config {
 		}
 
 		this.cfg = this.parseConfig((await fs.readFileSync(_name)).toString());
-
 		// redefine inputs to real address instead of name.
 		this.cfg.contracts.input = this.getContractAddressByName(this.cfg.contracts.input);
 		this.cfg.contracts.output = this.getContractAddressByName(this.cfg.contracts.output);
@@ -21,6 +20,8 @@ class Config {
 		this.cfg.contracts.router = this.cfg.contracts.router;
 		this.cfg.contracts.factory = this.cfg.contracts.factory;
 		this.cfg.contracts.weth = this.cfg.contracts.weth;
+		this.cfg.contracts.pair = this.cfg.contracts.pair;
+		this.cfg.contracts.dex = this.cfg.contracts.dex;
 		this.cfg.transaction.gas_price = ethers.utils.parseUnits(`${this.cfg.transaction.gas_price}`, 'gwei');
 	}
 
